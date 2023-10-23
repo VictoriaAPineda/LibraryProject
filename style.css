@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#addBook-Form{
+    /* display: flex; */
+    /* flex-direction: column; */
+    border: 1px black solid;
+    padding: 40px 30px;
+    margin-top: 20px;
+}
+#addBook-Form div:not(:last-child){
+    margin-bottom: 20px;
+}
+#addBook-Form #confirm-container{
+    text-align: center;
+}
+#confirm-btn{
+    padding: 5px 10px;
+}
