@@ -6,17 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
     
-    <h1>Welcome!</h1>
-    <button>Add Book</button>
     <h2>Your Current Libray</h2>
-    <!--Automatically display table of books-->
+    <button id="addBook-btn">Add Book</button>
+    <!--Automatically display table of books by JS-->
     <div id="user-libray"></div>
-    <!--Aside window popup to add a book (format test. add to js for event)-->
-    <div>
+
+
+    <!--Aside window popup to add a book 
+        (format test. remove then add to js for event to display)-->
+    <div id="sideForm-Overlay" class="sideForm">
         <form action="" id="addBook-Form">
+            <a href="#" class="close-btn"><i class="bi bi-x-lg"></i></a>
             <div>
                 <label for="">Book Title:</label>
                 <input type="text" id="">
@@ -40,9 +44,6 @@
             <div id="confirm-container">   
                 <button id="confirm-btn">Confirm</button>
             </div>
-               
-         
-
         </form>
     </div>
 
