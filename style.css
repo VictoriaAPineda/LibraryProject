@@ -8,9 +8,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    background-color: aliceblue;
     margin-top: 5%;
-  
 }
 
 .sideForm{
@@ -20,7 +19,7 @@ body{
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: azure;
+    background-color: #fff;
     overflow: hidden;
     transition: 0.5s;
 }
