@@ -89,6 +89,7 @@ function openForm(){
 }
 function closeForm(){
     document.querySelector("#sideForm-Overlay").style.width = "0px";
+    clearForm();
 }
 
 
