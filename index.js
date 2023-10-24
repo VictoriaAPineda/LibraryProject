@@ -21,7 +21,7 @@ function addBookToLibrary(){
     // get form input data
     let titleEl = document.querySelector("#title").value;
     let authorEl = document.querySelector("#author").value;
-    let pageNumberEl = document.querySelector("#pageNum").value; // create a number validation f
+    let pageNumberEl = document.querySelector("#pageNum").value; // create a number validation 
     let readValueEl = document.querySelector("#readValue").value; //=== "true" ? true : false;
     // checkbox deafults needed.
 
@@ -48,40 +48,34 @@ function toogleReadStatus(){
 }
 
 // Display list of books in library
-// double+ table issue [?]
 function displayLibraryBooks(){
-    // create a table
-    const newbookTable = document.createElement("table");
+    // Use table element on index.html
+    const tableEl = document.querySelector("#bookTable");
     // table headings
-    newbookTable.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th></thead>"
-   
+    tableEl.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th></thead>";
     // Loop through the book objects in the myLibray array
     for(book of myLibrary){
         // creat the elements of the table
         const newRow = document.createElement("tr");
+
         const tdTitle = document.createElement("td");
         const tdAuthor = document.createElement("td");
         const tdPageNum = document.createElement("td");
         const tdHaveRead = document.createElement("td");
-        // assign the data 
+        // assign the data from the Book object 
         tdTitle.textContent = book.title;
         tdAuthor.textContent =  book.author;
         tdPageNum.textContent = book.pages;
-
-        // tdHaveRead.textContent = book.read; // adjust
-        tdHaveRead.innerHTML = "<label>Read?</label><input type='checkbox' id='checkRead'></input>"
-
-        // add the data to table
+        tdHaveRead.innerHTML = "<label>Read?</label><input type='checkbox' id='checkRead'></input>";
+        // add the data to table row 
         newRow.appendChild(tdTitle);
         newRow.appendChild(tdAuthor);
         newRow.appendChild(tdPageNum);
         newRow.appendChild(tdHaveRead); 
-        // start anoterh row
-        newbookTable.appendChild(newRow);
+        // attach another row on table
+        tableEl.appendChild(newRow);  
     }
-    // add table to html
-    const bTable = document.querySelector("#user-libray");
-    bTable.appendChild(newbookTable);
+    event.preventDefault(); // prevents page refresh when new data is added (wiping table)
 }
 displayLibraryBooks();
 
