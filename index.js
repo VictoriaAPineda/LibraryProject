@@ -33,11 +33,15 @@ function addBookToLibrary(){
     displayLibraryBooks();
 
     // empty form after submission
+    clearForm();
 }
 
 // clear form fields after submission
 function clearForm(){
-    
+    document.querySelector("#title").value = '';
+    document.querySelector("#author").value = '';
+    document.querySelector("#pageNum").value = ''; 
+    document.querySelector("#readValue").value = ''; // [need fix]
 }
 
 // Toggle is book has been read/not read (checkbox)
