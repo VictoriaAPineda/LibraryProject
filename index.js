@@ -79,7 +79,7 @@ function displayLibraryBooks(){
         // attach another row on table
         tableEl.appendChild(newRow);  
     }
-    event.preventDefault(); // prevents page refresh when new data is added (wiping table)
+    Event.preventDefault(); // prevents page refresh when new data is added (wiping table)
 }
 displayLibraryBooks();
 
