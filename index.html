@@ -27,27 +27,27 @@
         <form action="" id="addBook-Form">
             <a href="#" class="close-btn" onclick="closeForm()"><i class="bi bi-x-lg"></i></a>
             <div>
-                <label for="">Book Title:</label>
-                <input type="text" id="">
+                <label for="title">Book Title:</label>
+                <input type="text" id="title">
             </div>
            
             <div>
-                <label for="">Author:</label>
-                <input type="text" id="">
+                <label for="author">Author:</label>
+                <input type="text" id="author">
             </div>
       
             <div>
-                <label for="">Page Count:</label>
-                <input type="text" id="">
+                <label for="pageNum">Page Count:</label>
+                <input type="text" id="pageNum">
             </div>
 
             <div>
-                <label for="">Read:</label>
-                <input type="checkbox">
+                <label for="readValue">Read:</label>
+                <input type="checkbox" id="readValue">
             </div>
 
             <div id="confirm-container">   
-                <button id="confirm-btn">Confirm</button>
+                <button id="confirm-btn" onclick="addBookToLibrary()">Confirm</button>
             </div>
         </form>
     </div>

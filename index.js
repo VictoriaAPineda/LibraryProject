@@ -1,6 +1,8 @@
 
 // Holds all the Book objects
-const myLibrary = [];
+// default values
+const myLibrary = [{title:"Poseidon", author:"Bob", pages:"123", read: true}, {
+    title:"Shipwreck", author:"Danson", pages:400, read: false}];
 
 function Book (title, author, pages, read){
     this.title = title;
@@ -12,25 +14,47 @@ function Book (title, author, pages, read){
        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
     }
 }
+
 // Adds book to library
-function addBookToLibrary(book){
-    myLibrary.push(book);
+// the confirm button runs this
+function addBookToLibrary(){
+    // get form input data
+    let titleEl = document.querySelector("#title").value;
+    let authorEl = document.querySelector("#author").value;
+    let pageNumberEl = document.querySelector("#pageNum").value; // create a number validation f
+    let readValueEl = document.querySelector("#readValue").value; //=== "true" ? true : false;
+    // checkbox deafults needed.
+
+    // create a new Book obj. from user input
+    const newBook = new Book(titleEl, authorEl, pageNumberEl, readValueEl);
+    myLibrary.push(newBook)
+    
+    // update table displayed
+    displayLibraryBooks();
+
+    // empty form after submission
 }
+
+// clear form fields after submission
+function clearForm(){
+    
+}
+
 // Toggle is book has been read/not read (checkbox)
 // checkbox should be loaded checked if true value from read property in Book obj. 
 function toogleReadStatus(){
     
-   
 
 }
 
-
-
-
 // Display list of books in library
+// double+ table issue [?]
 function displayLibraryBooks(){
+    // create a table
     const newbookTable = document.createElement("table");
+    // table headings
     newbookTable.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th></thead>"
+   
     // Loop through the book objects in the myLibray array
     for(book of myLibrary){
         // creat the elements of the table
@@ -59,16 +83,7 @@ function displayLibraryBooks(){
     const bTable = document.querySelector("#user-libray");
     bTable.appendChild(newbookTable);
 }
-
-// hard-code for testing. 
-const b01 = new Book("Poseidon", "Bob", 123, true);
-const b02 = new Book("Shipwreck", "Danson", 400, false);
-addBookToLibrary(b01);
-addBookToLibrary(b02);
-
 displayLibraryBooks();
-
-
 
 
 function openForm(){
