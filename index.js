@@ -42,7 +42,7 @@ function clearForm(){
     document.querySelector("#title").value = '';
     document.querySelector("#author").value = '';
     document.querySelector("#pageNum").value = ''; 
-    document.querySelector("#readValue").value = ''; // [need fix]
+    document.querySelector("#readValue").value = ''; // [need fix - unchecked default]
 }
 
 // Toggle is book has been read/not read (checkbox)
