@@ -16,8 +16,34 @@ function addBookToLibrary(book){
     myLibrary.push(book);
 }
 // Display list of books in library
+
 function displayLibraryBooks(){
-    console.log(myLibrary.map(book => book.info()));
+    const newbookTable = document.createElement("table");
+    newbookTable.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th></thead>"
+    // Loop through the book objects in the myLibray array
+    for(book of myLibrary){
+        // creat the elements of the table
+        const newRow = document.createElement("tr");
+        const tdTitle = document.createElement("td");
+        const tdAuthor = document.createElement("td");
+        const tdPageNum = document.createElement("td");
+        const tdHaveRead = document.createElement("td");
+        // assign the data 
+        tdTitle.textContent = book.title;
+        tdAuthor.textContent =  book.author;
+        tdPageNum.textContent = book.pages;
+        tdHaveRead.textContent = book.read;
+        // add the data to table
+        newRow.appendChild(tdTitle);
+        newRow.appendChild(tdAuthor);
+        newRow.appendChild(tdPageNum);
+        newRow.appendChild(tdHaveRead); // adjust
+        // start anoterh row
+        newbookTable.appendChild(newRow);
+    }
+    // add table to html
+    const bTable = document.querySelector("#user-libray");
+    bTable.appendChild(newbookTable);
 }
 
 // hard-code for testing. 
@@ -34,7 +60,6 @@ displayLibraryBooks();
 function openForm(){
     document.querySelector("#sideForm-Overlay").style.width = "300px";
 }
-
 function closeForm(){
     document.querySelector("#sideForm-Overlay").style.width = "0px";
 }
