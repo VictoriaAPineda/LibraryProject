@@ -11,6 +11,16 @@ body{
     background-color: aliceblue;
     margin-top: 5%;
 }
+table{
+    border: solid 1px black;
+}
+table td{
+    border: solid 1px black;
+}
+#checkRead{
+    width: 10px;
+    height: 10px;
+}
 
 .sideForm{
     height: 100%;

@@ -1,4 +1,5 @@
 
+// Holds all the Book objects
 const myLibrary = [];
 
 function Book (title, author, pages, read){
@@ -15,8 +16,18 @@ function Book (title, author, pages, read){
 function addBookToLibrary(book){
     myLibrary.push(book);
 }
-// Display list of books in library
+// Toggle is book has been read/not read (checkbox)
+// checkbox should be loaded checked if true value from read property in Book obj. 
+function toogleReadStatus(){
+    
+   
 
+}
+
+
+
+
+// Display list of books in library
 function displayLibraryBooks(){
     const newbookTable = document.createElement("table");
     newbookTable.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th></thead>"
@@ -32,12 +43,15 @@ function displayLibraryBooks(){
         tdTitle.textContent = book.title;
         tdAuthor.textContent =  book.author;
         tdPageNum.textContent = book.pages;
-        tdHaveRead.textContent = book.read;
+
+        // tdHaveRead.textContent = book.read; // adjust
+        tdHaveRead.innerHTML = "<label>Read?</label><input type='checkbox' id='checkRead'></input>"
+
         // add the data to table
         newRow.appendChild(tdTitle);
         newRow.appendChild(tdAuthor);
         newRow.appendChild(tdPageNum);
-        newRow.appendChild(tdHaveRead); // adjust
+        newRow.appendChild(tdHaveRead); 
         // start anoterh row
         newbookTable.appendChild(newRow);
     }
