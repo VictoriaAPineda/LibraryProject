@@ -11,7 +11,7 @@
 <body>
     
     <h2>Your Current Libray</h2>
-    <button id="addBook-btn">Add Book</button>
+    <button id="addBook-btn" onclick="openForm()">Add Book</button>
     <!--Automatically display table of books by JS-->
     <div id="user-libray"></div>
 
@@ -20,7 +20,7 @@
         (format test. remove then add to js for event to display)-->
     <div id="sideForm-Overlay" class="sideForm">
         <form action="" id="addBook-Form">
-            <a href="#" class="close-btn"><i class="bi bi-x-lg"></i></a>
+            <a href="#" class="close-btn" onclick="closeForm()"><i class="bi bi-x-lg"></i></a>
             <div>
                 <label for="">Book Title:</label>
                 <input type="text" id="">

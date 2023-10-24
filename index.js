@@ -20,12 +20,24 @@ function displayLibraryBooks(){
     console.log(myLibrary.map(book => book.info()));
 }
 
-// example [hard-coded]
+// hard-code for testing. 
 const b01 = new Book("Poseidon", "Bob", 123, true);
 const b02 = new Book("Shipwreck", "Danson", 400, false);
 addBookToLibrary(b01);
 addBookToLibrary(b02);
 
 displayLibraryBooks();
+
+
+
+
+function openForm(){
+    document.querySelector("#sideForm-Overlay").style.width = "300px";
+}
+
+function closeForm(){
+    document.querySelector("#sideForm-Overlay").style.width = "0px";
+}
+
 
 
