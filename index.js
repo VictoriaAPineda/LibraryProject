@@ -67,7 +67,7 @@ function displayLibraryBooks(){
     tableEl.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th></thead>";
     // Loop through the book objects in the myLibray array
     for(book of myLibrary){
-        // console.log(book);
+        console.log(book);
         // creat the elements of the table
         const newRow = document.createElement("tr");
 
@@ -76,18 +76,24 @@ function displayLibraryBooks(){
         const tdPageNum = document.createElement("td");
         const tdHaveRead = document.createElement("input"); 
         tdHaveRead.type = "checkbox";// the element is further specified to be a checkbox
+        const tdReadLabel = document.createElement("label")
       
         // assign the data from the Book object 
         tdTitle.textContent = book.title;
         tdAuthor.textContent =  book.author;
         tdPageNum.textContent = book.pages;
         tdHaveRead.checked =  book.read; // checked, depending on Book objec Read value
-        
+        if (tdHaveRead.checked == true) {
+            tdReadLabel.textContent = "Yes";
+        } else {
+            tdReadLabel.textContent = "No";
+        }
         // add the data to table row 
         newRow.appendChild(tdTitle);
         newRow.appendChild(tdAuthor);
         newRow.appendChild(tdPageNum);
         newRow.appendChild(tdHaveRead); 
+        newRow.appendChild(tdReadLabel);
         // attach another row on table
         tableEl.appendChild(newRow);  
     }
