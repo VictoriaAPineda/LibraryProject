@@ -8,7 +8,7 @@ function Book (title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.read = read; // true / false
 
     this.info = function(){
        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
@@ -23,8 +23,7 @@ function addBookToLibrary(){
     let titleEl = document.querySelector("#title").value;
     let authorEl = document.querySelector("#author").value;
     let pageNumberEl = document.querySelector("#pageNum").value; // create a number validation 
-    let readValueEl = document.querySelector("#readValue").value; //=== "true" ? true : false;
-    // checkbox deafults needed.
+    let readValueEl = document.querySelector("#readValue").checked; // true or false
 
     // create a new Book obj. from user input
     const newBook = new Book(titleEl, authorEl, pageNumberEl, readValueEl);
@@ -42,13 +41,13 @@ function clearForm(){
     document.querySelector("#title").value = '';
     document.querySelector("#author").value = '';
     document.querySelector("#pageNum").value = ''; 
-    document.querySelector("#readValue").value = ''; // [need fix - unchecked default]
+    document.querySelector("#readValue").checked = false; // [need fix - unchecked default]
 }
 
 // Toggle is book has been read/not read (checkbox)
 // checkbox should be loaded checked if true value from read property in Book obj. 
 function toogleReadStatus(){
-    
+   
 
 }
 
@@ -56,10 +55,12 @@ function toogleReadStatus(){
 function displayLibraryBooks(){
     // Use table element on index.html
     const tableEl = document.querySelector("#bookTable");
+
     // table headings
     tableEl.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th></thead>";
     // Loop through the book objects in the myLibray array
     for(book of myLibrary){
+        // console.log(book);
         // creat the elements of the table
         const newRow = document.createElement("tr");
 
@@ -72,6 +73,11 @@ function displayLibraryBooks(){
         tdAuthor.textContent =  book.author;
         tdPageNum.textContent = book.pages;
         tdHaveRead.innerHTML = "<label>Read?</label><input type='checkbox' id='checkRead'></input>";
+        
+
+        // add thte toggle box (basde on true/false)
+        // toggleReadStatus( readValeEL)???
+        
         // add the data to table row 
         newRow.appendChild(tdTitle);
         newRow.appendChild(tdAuthor);
@@ -80,7 +86,7 @@ function displayLibraryBooks(){
         // attach another row on table
         tableEl.appendChild(newRow);  
     }
-    Event.preventDefault(); // prevents page refresh when new data is added (wiping table)
+    event.preventDefault(); // prevents page refresh when new data is added (wiping table)
 }
 displayLibraryBooks();
 
