@@ -64,7 +64,7 @@ function displayLibraryBooks(){
     const tableEl = document.querySelector("#bookTable");
 
     // table headings
-    tableEl.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th></thead>";
+    tableEl.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th><th>Delete</th></thead>";
     // Loop through the book objects in the myLibray array
     for(book of myLibrary){
         console.log(book);// view objects
@@ -81,7 +81,10 @@ function displayLibraryBooks(){
         // places both checkbox and label in same table data cell
         tdRead.appendChild(tdHaveRead);
         tdRead.appendChild(tdReadLabel);
-      
+        const tdRemove= document.createElement("td");
+        const removeBtn = document.createElement("button");
+        tdRemove.appendChild(removeBtn);
+
         // assign the data from the Book object 
         tdTitle.textContent = book.title;
         tdAuthor.textContent =  book.author;
@@ -97,6 +100,7 @@ function displayLibraryBooks(){
         newRow.appendChild(tdAuthor);
         newRow.appendChild(tdPageNum);
         newRow.appendChild(tdRead);
+        newRow.appendChild(tdRemove);
     
         // attach another row on table
         tableEl.appendChild(newRow);  

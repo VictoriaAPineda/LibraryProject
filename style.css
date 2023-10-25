@@ -11,17 +11,20 @@ body{
     background-color: aliceblue;
     margin-top: 5%;
 }
-table{
+#bookTable{
     border: solid 1px black;
+    border-collapse: collapse;
 }
-table td{
+#bookTable td{
     border: solid 1px black;
+   
+    text-align: center;
 }
-#checkRead{
+#bookTable button{ /* adjust*/
     width: 10px;
     height: 10px;
+    margin-bottom: 5px;
 }
-
 .sideForm{
     height: 100%;
     width: 0; /* change to display */
