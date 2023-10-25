@@ -74,9 +74,13 @@ function displayLibraryBooks(){
         const tdTitle = document.createElement("td");
         const tdAuthor = document.createElement("td");
         const tdPageNum = document.createElement("td");
+        const tdRead = document.createElement("td");
         const tdHaveRead = document.createElement("input"); 
         tdHaveRead.type = "checkbox";// the element is further specified to be a checkbox
-        const tdReadLabel = document.createElement("label")
+        const tdReadLabel = document.createElement("label");
+        // places both checkbox and label in same table data cell
+        tdRead.appendChild(tdHaveRead);
+        tdRead.appendChild(tdReadLabel);
       
         // assign the data from the Book object 
         tdTitle.textContent = book.title;
@@ -92,8 +96,8 @@ function displayLibraryBooks(){
         newRow.appendChild(tdTitle);
         newRow.appendChild(tdAuthor);
         newRow.appendChild(tdPageNum);
-        newRow.appendChild(tdHaveRead); 
-        newRow.appendChild(tdReadLabel);
+        newRow.appendChild(tdRead);
+    
         // attach another row on table
         tableEl.appendChild(newRow);  
     }
