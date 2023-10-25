@@ -4,6 +4,9 @@
 const myLibrary = [{title:"Poseidon", author:"Bob", pages:"123", read: true}, {
     title:"Shipwreck", author:"Danson", pages:400, read: false}];
 
+const checkBoxRead = document.querySelector("#readValue");/// 
+
+
 function Book (title, author, pages, read){
     this.title = title;
     this.author = author;
@@ -12,6 +15,20 @@ function Book (title, author, pages, read){
 
     this.info = function(){
        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
+    }
+}
+
+Book.prototype = {
+   
+    constructor :  Book,
+    toggleRead : function(){
+        if (this.read == true ) {
+            console.log("true");
+            checkBoxRead.checked;
+        } else {
+            console.log("false");
+        }
+        
     }
 }
 
@@ -44,13 +61,6 @@ function clearForm(){
     document.querySelector("#readValue").checked = false; // [need fix - unchecked default]
 }
 
-// Toggle is book has been read/not read (checkbox)
-// checkbox should be loaded checked if true value from read property in Book obj. 
-function toogleReadStatus(){
-   
-
-}
-
 // Display list of books in library
 function displayLibraryBooks(){
     // Use table element on index.html
@@ -67,16 +77,18 @@ function displayLibraryBooks(){
         const tdTitle = document.createElement("td");
         const tdAuthor = document.createElement("td");
         const tdPageNum = document.createElement("td");
-        const tdHaveRead = document.createElement("td");
+        const tdHaveRead = document.createElement("input");
+        tdHaveRead.type = "checkbox";
+      
         // assign the data from the Book object 
         tdTitle.textContent = book.title;
         tdAuthor.textContent =  book.author;
         tdPageNum.textContent = book.pages;
-        tdHaveRead.innerHTML = "<label>Read?</label><input type='checkbox' id='checkRead'></input>";
+        tdHaveRead.checked =  book.read;
         
-
-        // add thte toggle box (basde on true/false)
-        // toggleReadStatus( readValeEL)???
+        
+        // tdHaveRead.textContent = book.read;
+        // tdHaveRead.type = "checkbox";
         
         // add the data to table row 
         newRow.appendChild(tdTitle);
