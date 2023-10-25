@@ -50,6 +50,10 @@ function addBookToLibrary(){
     clearForm();
 }
 
+function deleteBook(){
+    // delete book object
+}
+
 // clear form fields after submission
 function clearForm(){
     document.querySelector("#title").value = '';
