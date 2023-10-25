@@ -32,7 +32,6 @@ function Book (title, author, pages, read){
 
 // Adds book to library
 // the confirm button runs this
-// Notes: check box needs fix: should be check/unchecked auto. based on Book obj. value
 function addBookToLibrary(){
     // get form input data
     let titleEl = document.querySelector("#title").value;
