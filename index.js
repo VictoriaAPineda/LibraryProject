@@ -55,7 +55,7 @@ function clearForm(){
     document.querySelector("#title").value = '';
     document.querySelector("#author").value = '';
     document.querySelector("#pageNum").value = ''; 
-    document.querySelector("#readValue").checked = false; // [need fix - unchecked default]
+    document.querySelector("#readValue").checked = false; 
 }
 
 // Display list of books in library
