@@ -86,7 +86,7 @@ function displayLibraryBooks(){
         tdTitle.textContent = book.title;
         tdAuthor.textContent =  book.author;
         tdPageNum.textContent = book.pages;
-        tdHaveRead.checked =  book.read; // checked, depending on Book objec Read value
+        tdHaveRead.checked =  book.read; // checked, depending on Book object Read value
         if (tdHaveRead.checked == true) {
             tdReadLabel.textContent = "Yes";
         } else {
