@@ -14,7 +14,8 @@ function Book (title, author, pages, read){
        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
     }
 }
-
+// Need a function that will toggle the Read value and reflect changes in
+// the Book Object
 // Book.prototype = {
    
 //     constructor :  Book,
@@ -67,7 +68,7 @@ function displayLibraryBooks(){
     tableEl.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th></thead>";
     // Loop through the book objects in the myLibray array
     for(book of myLibrary){
-        console.log(book);
+        console.log(book);// view objects
         // creat the elements of the table
         const newRow = document.createElement("tr");
 
