@@ -18,19 +18,19 @@ function Book (title, author, pages, read){
     }
 }
 
-Book.prototype = {
+// Book.prototype = {
    
-    constructor :  Book,
-    toggleRead : function(){
-        if (this.read == true ) {
-            console.log("true");
-            checkBoxRead.checked;
-        } else {
-            console.log("false");
-        }
+//     constructor :  Book,
+//     toggleRead : function(){
+//         if (this.read == true ) {
+//             console.log("true");
+//             checkBoxRead.checked;
+//         } else {
+//             console.log("false");
+//         }
         
-    }
-}
+//     }
+// }
 
 // Adds book to library
 // the confirm button runs this
@@ -77,18 +77,14 @@ function displayLibraryBooks(){
         const tdTitle = document.createElement("td");
         const tdAuthor = document.createElement("td");
         const tdPageNum = document.createElement("td");
-        const tdHaveRead = document.createElement("input");
-        tdHaveRead.type = "checkbox";
+        const tdHaveRead = document.createElement("input"); 
+        tdHaveRead.type = "checkbox";// the element is further specified to be a checkbox
       
         // assign the data from the Book object 
         tdTitle.textContent = book.title;
         tdAuthor.textContent =  book.author;
         tdPageNum.textContent = book.pages;
-        tdHaveRead.checked =  book.read;
-        
-        
-        // tdHaveRead.textContent = book.read;
-        // tdHaveRead.type = "checkbox";
+        tdHaveRead.checked =  book.read; // checked, depending on Book objec Read value
         
         // add the data to table row 
         newRow.appendChild(tdTitle);
