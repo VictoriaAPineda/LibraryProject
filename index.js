@@ -4,9 +4,6 @@
 const myLibrary = [{title:"Poseidon", author:"Bob", pages:"123", read: true}, {
     title:"Shipwreck", author:"Danson", pages:400, read: false}];
 
-const checkBoxRead = document.querySelector("#readValue");/// 
-
-
 function Book (title, author, pages, read){
     this.title = title;
     this.author = author;
