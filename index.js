@@ -18,15 +18,20 @@ function Book (title, author, pages, read){
 // the Book Object
 // Run displayLibraryBooks() ? to display update status?
 // wip
+// Change Label + value 
+let labelEL = document.querySelector("#readlabel");
 Book.prototype.toggleRead = function(){
+    console.log("inside toggle read")
 
-            // if(this.read == true){
-            //     console.log("Checked!");
-            // }else{
-            //     console.log("Unchecked!")
-            // }
-
-   
+            if(this.read == true){
+                this.read == false
+                labelEL.textContent ="No";
+             
+            }else{
+                this.read == true;
+                labelEL.textContent = "Yes";
+            }
+            displayLibraryBooks();
 };
 
 // Adds book to library
@@ -71,6 +76,7 @@ function displayLibraryBooks(){
     // table headings
     tableEl.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th><th>Delete</th></thead>";
     // Loop through the book objects in the myLibray array
+    
     for(book of myLibrary){
         console.log(book);// view objects
         // creat the elements of the table
@@ -84,8 +90,9 @@ function displayLibraryBooks(){
         const tdHaveRead = document.createElement("input"); 
         tdHaveRead.type = "checkbox";// the element is further specified to be a checkbox
         tdHaveRead.id = "readCheckbox";
-        tdHaveRead.addEventListener("change", book.toggleRead); 
+        tdHaveRead.addEventListener("change", book.toggleRead); ///??? Needs work
         const tdReadLabel = document.createElement("label");
+        tdReadLabel.id = "readlabel";
 
         // places both checkbox and label in same table data cell
         tdRead.appendChild(tdHaveRead);
