@@ -16,22 +16,22 @@ function Book (title, author, pages, read){
 }
 // Need a function that will toggle the Read value and reflect changes in
 // the Book Object
-// Book.prototype = {
+// Run displayLibraryBooks() ? to display update status?
+// wip
+Book.prototype.toggleRead = function(){
+
+            // if(this.read == true){
+            //     console.log("Checked!");
+            // }else{
+            //     console.log("Unchecked!")
+            // }
+
    
-//     constructor :  Book,
-//     toggleRead : function(){
-//         if (this.read == true ) {
-//             console.log("true");
-//             checkBoxRead.checked;
-//         } else {
-//             console.log("false");
-//         }
-        
-//     }
-// }
+};
 
 // Adds book to library
 // the confirm button runs this
+// notes: don't add if fields are empty
 function addBookToLibrary(){
     // get form input data
     let titleEl = document.querySelector("#title").value;
@@ -52,6 +52,7 @@ function addBookToLibrary(){
 
 function deleteBook(){
     // delete book object
+    // run displayLibraryBooks() to update table
 }
 
 // clear form fields after submission
@@ -79,9 +80,13 @@ function displayLibraryBooks(){
         const tdAuthor = document.createElement("td");
         const tdPageNum = document.createElement("td");
         const tdRead = document.createElement("td");
+        // check box 
         const tdHaveRead = document.createElement("input"); 
         tdHaveRead.type = "checkbox";// the element is further specified to be a checkbox
+        tdHaveRead.id = "readCheckbox";
+        tdHaveRead.addEventListener("change", book.toggleRead); 
         const tdReadLabel = document.createElement("label");
+
         // places both checkbox and label in same table data cell
         tdRead.appendChild(tdHaveRead);
         tdRead.appendChild(tdReadLabel);
@@ -122,5 +127,10 @@ function closeForm(){
     clearForm();
 }
 
+// add vevent listener for checkbox
+// let haveReadCB = document.querySelector("#readCheckbox");
+// haveReadCB.addEventListener("change", ()=>{
+//     console.log("hello")
+// });
 
 
