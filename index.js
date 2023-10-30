@@ -14,26 +14,6 @@ function Book (title, author, pages, read){
        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
     }
 }
-// Need a function that will toggle the Read value and reflect changes in
-// the Book Object
-// Run displayLibraryBooks() ? to display update status?
-// wip
-// Change Label + value 
-let labelEL = document.querySelector("#readlabel");
-Book.prototype.toggleRead = function(){
-    console.log("inside toggle read")
-
-            if(this.read == true){
-                this.read == false
-                labelEL.textContent ="No";
-             
-            }else{
-                this.read == true;
-                labelEL.textContent = "Yes";
-            }
-            displayLibraryBooks();
-};
-
 // Adds book to library
 // the confirm button runs this
 // notes: don't add if fields are empty
@@ -77,7 +57,7 @@ function displayLibraryBooks(){
     tableEl.innerHTML = "<thead><th>Book Title</th><th>Author</th><th>Page Count</th><th>Read</th><th>Delete</th></thead>";
     // Loop through the book objects in the myLibray array
     
-    for(book of myLibrary){
+    for(let book of myLibrary){
         console.log(book);// view objects
         // creat the elements of the table
         const newRow = document.createElement("tr");
@@ -90,7 +70,10 @@ function displayLibraryBooks(){
         const tdHaveRead = document.createElement("input"); 
         tdHaveRead.type = "checkbox";// the element is further specified to be a checkbox
         tdHaveRead.id = "readCheckbox";
-        tdHaveRead.addEventListener("change", book.toggleRead); ///??? Needs work
+        tdHaveRead.addEventListener("click", ()=>{
+            book.read = !book.read;
+            displayLibraryBooks();
+        }); 
         const tdReadLabel = document.createElement("label");
         tdReadLabel.id = "readlabel";
 
