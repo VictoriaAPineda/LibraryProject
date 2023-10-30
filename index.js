@@ -116,11 +116,3 @@ function closeForm(){
     document.querySelector("#sideForm-Overlay").style.width = "0px";
     clearForm();
 }
-
-// add vevent listener for checkbox
-// let haveReadCB = document.querySelector("#readCheckbox");
-// haveReadCB.addEventListener("change", ()=>{
-//     console.log("hello")
-// });
-
-
