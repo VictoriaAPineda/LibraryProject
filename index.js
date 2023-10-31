@@ -35,11 +35,6 @@ function addBookToLibrary(){
     clearForm();
 }
 
-function deleteBook(){
-    // delete book object
-    // run displayLibraryBooks() to update table
-}
-
 // clear form fields after submission
 function clearForm(){
     document.querySelector("#title").value = '';
@@ -71,19 +66,23 @@ function displayLibraryBooks(){
         tdHaveRead.type = "checkbox";// the element is further specified to be a checkbox
         tdHaveRead.id = "readCheckbox";
         tdHaveRead.addEventListener("click", ()=>{
-            book.read = !book.read;
+            book.read = !book.read;// registers changes to Book object
             displayLibraryBooks();
         }); 
         const tdReadLabel = document.createElement("label");
         tdReadLabel.id = "readlabel";
-
         // places both checkbox and label in same table data cell
         tdRead.appendChild(tdHaveRead);
         tdRead.appendChild(tdReadLabel);
+        // remove button
         const tdRemove= document.createElement("td");
         const removeBtn = document.createElement("button");
+        removeBtn.id = "removeBtn"
+        tdRemove.addEventListener("click", ()=>{
+            myLibrary.splice(myLibrary.indexOf(book),1);
+            displayLibraryBooks();
+        });
         tdRemove.appendChild(removeBtn);
-
         // assign the data from the Book object 
         tdTitle.textContent = book.title;
         tdAuthor.textContent =  book.author;
