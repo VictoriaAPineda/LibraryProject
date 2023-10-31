@@ -78,6 +78,7 @@ function displayLibraryBooks(){
         const tdRemove= document.createElement("td");
         const removeBtn = document.createElement("button");
         removeBtn.id = "removeBtn"
+        removeBtn.textContent = "X"
         tdRemove.addEventListener("click", ()=>{
             myLibrary.splice(myLibrary.indexOf(book),1);
             displayLibraryBooks();
