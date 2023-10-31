@@ -49,6 +49,7 @@ body{
     border: solid 1px black;
     border-collapse: collapse;
     background-color: #fff;
+    white-space: nowrap;
 }
 #bookTable th{
     padding: 10px 20px;
